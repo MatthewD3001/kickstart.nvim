@@ -204,12 +204,13 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
+        component_separators = { left = '', right = ''},
+        section_separators = { left = '', right = ''},
       },
     },
+    dependencies = {'nvim-tree/nvim-web-devicons'},
   },
 
   {
@@ -656,6 +657,11 @@ cmp.setup {
     { name = 'path' },
   },
 }
+
+require('onedark').setup {
+  style = 'warmer'
+}
+require('onedark').load()
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
